@@ -16,6 +16,7 @@ export default function Checkboxes({
   checkedStateColor,
   intermediateStateColor,
   checkboxBorderColor,
+  verticalMargin,
 }) {
   return (
     <div
@@ -44,6 +45,7 @@ export default function Checkboxes({
                     height: checkboxSize,
                     width: checkboxSize,
                     left: -checkboxSize,
+                    marginBottom: verticalMargin,
                   }}
                   onClick={() =>
                     onChange(updateExpandedState(dataState, checkboxData.name))
@@ -58,6 +60,7 @@ export default function Checkboxes({
                     height: checkboxSize,
                     width: checkboxSize,
                     left: -checkboxSize,
+                    marginBottom: verticalMargin,
                   }}
                 />
               )}
@@ -80,6 +83,7 @@ export default function Checkboxes({
                 checkboxBorderColor={checkboxBorderColor}
                 label={checkboxData.label}
                 state={checkboxData.state}
+                verticalMargin={verticalMargin}
               />
             </div>
             {checkboxData.expanded === false ? null : (
@@ -92,6 +96,7 @@ export default function Checkboxes({
                 checkedStateColor={checkedStateColor}
                 intermediateStateColor={intermediateStateColor}
                 checkboxBorderColor={checkboxBorderColor}
+                verticalMargin={verticalMargin}
               />
             )}
           </div>

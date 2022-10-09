@@ -11,9 +11,14 @@ export default function Checkbox({
   checkedStateColor,
   intermediateStateColor,
   checkboxBorderColor,
+  verticalMargin,
 }) {
   return (
-    <div className={styles.checkboxContainer} onClick={onToggle}>
+    <div
+      className={styles.checkboxContainer}
+      style={{ marginBottom: verticalMargin }}
+      onClick={onToggle}
+    >
       <div className={styles.checkboxInnerContainer}>
         <div
           className={styles.checkbox}

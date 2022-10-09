@@ -10,6 +10,7 @@ export default function NestedCheckbox({
   checkedStateColor,
   intermediateStateColor,
   checkboxBorderColor,
+  verticalMargin,
 }) {
   return (
     <Checkboxes
@@ -21,6 +22,7 @@ export default function NestedCheckbox({
       checkedStateColor={checkedStateColor}
       intermediateStateColor={intermediateStateColor}
       checkboxBorderColor={checkboxBorderColor}
+      verticalMargin={verticalMargin}
     />
   );
 }
