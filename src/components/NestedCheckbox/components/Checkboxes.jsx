@@ -45,6 +45,7 @@ export default function Checkboxes({
                     height: checkboxSize,
                     width: checkboxSize,
                     left: -checkboxSize,
+                    borderColor: checkboxBorderColor,
                     marginBottom: verticalMargin,
                   }}
                   onClick={() =>
