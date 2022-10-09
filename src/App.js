@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { NestedCheckbox, CheckboxStates } from "./components/NestedCheckbox";
+import { NestedCheckbox, useCheckboxState } from "./components/NestedCheckbox";
 import styles from "./styles/app.module.css";
 
 const data = [
@@ -65,20 +64,34 @@ const data = [
   },
 ];
 
-const initialState = data.map((dataItem) => ({
-  ...dataItem,
-  state: CheckboxStates.UNCHECKED,
-}));
-
 function App() {
-  const [dataState, setDataState] = useState(initialState);
+  const [dataWithState, setDataWithState] = useCheckboxState(data);
+  const [data2WithState, setData2WithState] = useCheckboxState(data);
   return (
     <div className={styles.container}>
-      <h1>Nested checkbox component example</h1>
-      <NestedCheckbox
-        dataState={dataState}
-        onChange={(newState) => setDataState(newState)}
-      />
+      <div>
+        <h1>Basic Nested checkbox</h1>
+        <NestedCheckbox
+          dataWithState={dataWithState}
+          onChange={(newState) => setDataWithState(newState)}
+        />
+      </div>
+      <div>
+        <h1>Customized Nested checkbox</h1>
+        <NestedCheckbox
+          dataWithState={data2WithState}
+          onChange={(newState) => setData2WithState(newState)}
+          checkboxSize={20}
+          fontStyles={{
+            color: "#923563",
+            fontSize: 20,
+          }}
+          checkedStateColor="brown"
+          intermediateStateColor="#018347"
+          checkboxBorderColor="orange"
+          verticalMargin={30}
+        />
+      </div>
     </div>
   );
 }
