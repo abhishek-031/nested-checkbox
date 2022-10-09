@@ -14,7 +14,13 @@ export default function Checkboxes({
   checkboxBorderColor,
 }) {
   return (
-    <div className={styles.checkboxesContainer}>
+    <div
+      className={
+        checkboxesToRender[0]?.parentId !== null
+          ? styles.checkboxesContainer
+          : null
+      }
+    >
       {checkboxesToRender.map((checkboxData) => (
         <div key={checkboxData.name}>
           <Checkbox
