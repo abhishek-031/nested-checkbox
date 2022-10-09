@@ -72,4 +72,21 @@ function updateParentOnUpdate(state, id) {
   }
 }
 
-export { getChildrenCheckboxes, CheckboxStates, getNewDataStateOnChange };
+function updateExpandedState(data, id) {
+  return data.map((dataItem) => {
+    if (dataItem.name === id) {
+      return {
+        ...dataItem,
+        expanded: dataItem.expanded === false ? true : false,
+      };
+    }
+    return { ...dataItem };
+  });
+}
+
+export {
+  getChildrenCheckboxes,
+  CheckboxStates,
+  getNewDataStateOnChange,
+  updateExpandedState,
+};

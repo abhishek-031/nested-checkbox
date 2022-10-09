@@ -1,5 +1,5 @@
 .checkboxesContainer {
-  padding-left: 30px;
+  padding-left: 16px;
 }
 
 .checkbox {
@@ -10,6 +10,7 @@
   border-radius: 4px;
   margin-right: 5px;
   position: relative;
+  box-sizing: border-box;
   flex-shrink: 0;
   flex-grow: 0;
 }
@@ -41,7 +42,7 @@
 .checkboxContainer {
   display: inline-block;
   cursor: pointer;
-  margin: 5px 0;
+  margin-bottom: 5px;
 }
 
 .label {
@@ -52,4 +53,34 @@
 .checkboxInnerContainer {
   display: flex;
   align-items: center;;
+}
+
+.expand {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 16px;
+  width: 16px;
+  box-sizing: border-box;
+  border-radius: 50%;
+  border: 1px dotted black;
+  font-size: 14px;
+  padding-bottom: 2px;
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+.expandBlank {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 16px;
+  width: 16px;
+  box-sizing: border-box;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+.checkboxAndExpandContainer {
+  display: flex;
 }
