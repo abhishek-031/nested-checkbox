@@ -1,20 +1,24 @@
 import React from "react";
-import { getChildrenCheckboxes, isChecked, getNewDataStateOnChange } from "../utils";
+import { getChildrenCheckboxes, getNewDataStateOnChange } from "../utils";
 import styles from "../../../styles/checkbox.module.css";
+import Checkbox from "./Checkbox";
 
 export default function Checkboxes({
   dataState,
   checkboxesToRender,
   onChange,
+  checkboxSize,
+  fontStyles,
+  checkedStateColor,
+  intermediateStateColor,
+  checkboxBorderColor,
 }) {
   return (
     <div className={styles.checkboxesContainer}>
       {checkboxesToRender.map((checkboxData) => (
         <div key={checkboxData.name}>
-          <input
-            id={checkboxData.name}
-            type="checkbox"
-            onChange={() =>
+          <Checkbox
+            onToggle={() =>
               onChange(
                 getNewDataStateOnChange(
                   dataState,
@@ -24,13 +28,26 @@ export default function Checkboxes({
                 )
               )
             }
-            checked={isChecked(checkboxData.state)}
+            checkboxSize={checkboxSize}
+            fontStyles={fontStyles}
+            checkedStateColor={checkedStateColor}
+            intermediateStateColor={intermediateStateColor}
+            checkboxBorderColor={checkboxBorderColor}
+            label={checkboxData.label}
+            state={checkboxData.state}
           />
-          <label htmlFor={checkboxData.name}>{checkboxData.label}</label>
           <Checkboxes
             dataState={dataState}
-            checkboxesToRender={getChildrenCheckboxes(dataState, checkboxData.name)}
+            checkboxesToRender={getChildrenCheckboxes(
+              dataState,
+              checkboxData.name
+            )}
             onChange={onChange}
+            checkboxSize={checkboxSize}
+            fontStyles={fontStyles}
+            checkedStateColor={checkedStateColor}
+            intermediateStateColor={intermediateStateColor}
+            checkboxBorderColor={checkboxBorderColor}
           />
         </div>
       ))}

@@ -8,10 +8,6 @@ function getChildrenCheckboxes(data, parentId) {
   return data.filter((dataItem) => dataItem.parentId === parentId);
 }
 
-function isChecked(checkboxState) {
-  return checkboxState === CheckboxStates.CHECKED;
-}
-
 function getNewDataStateOnChange(
   currentState,
   checkboxId,
@@ -53,14 +49,22 @@ function updateParentOnUpdate(state, id) {
   if (id === null) return;
   const parentItem = state.find((stateItem) => stateItem.name === id);
   const currentStateOfParent = parentItem.state;
+  let someAreChecked = false;
   const areAllChildrenChecked = state.reduce((areAllChecked, stateItem) => {
     if (stateItem.parentId === id) {
+      if (
+        stateItem.state === CheckboxStates.CHECKED ||
+        stateItem.state === CheckboxStates.INTERMEDIATE
+      )
+        someAreChecked = true;
       return areAllChecked && stateItem.state === CheckboxStates.CHECKED;
     }
     return areAllChecked && true;
   }, true);
-  const newStateOfParent = areAllChildrenChecked
+  let newStateOfParent = areAllChildrenChecked
     ? CheckboxStates.CHECKED
+    : someAreChecked
+    ? CheckboxStates.INTERMEDIATE
     : CheckboxStates.UNCHECKED;
   if (currentStateOfParent !== newStateOfParent) {
     parentItem.state = newStateOfParent;
@@ -68,9 +72,4 @@ function updateParentOnUpdate(state, id) {
   }
 }
 
-export {
-  getChildrenCheckboxes,
-  CheckboxStates,
-  isChecked,
-  getNewDataStateOnChange,
-};
+export { getChildrenCheckboxes, CheckboxStates, getNewDataStateOnChange };

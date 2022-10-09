@@ -1,3 +1,53 @@
 .checkboxesContainer {
   padding-left: 30px;
 }
+
+.checkbox {
+  border: 1px solid #CAD1D4;
+  display: inline-block;
+  height: 16px;
+  width: 16px;
+  border-radius: 4px;
+  margin-right: 5px;
+  position: relative;
+}
+
+.checked {
+  content: "";
+  position: absolute;
+  height: 50%;
+  width: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  border-radius: 50%;
+  background: #41C3A9;
+}
+
+.intermediate {
+  content: "";
+  position: absolute;
+  height: 50%;
+  width: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  border-radius: 50%;
+  background: #AAAAAA;
+}
+
+.checkboxContainer {
+  display: inline-block;
+  cursor: pointer;
+  margin: 5px 0;
+}
+
+.label {
+  cursor: pointer;
+  display: inline-block;
+}
+
+.checkboxInnerContainer {
+  display: flex;
+  align-items: center;;
+}
