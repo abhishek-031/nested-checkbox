@@ -1,4 +1,4 @@
 import NestedCheckbox from "./components/NestedCheckbox";
-import { CheckboxStates } from "./utils";
+import { useCheckboxState } from "./utils";
 
-export { CheckboxStates, NestedCheckbox };
+export { useCheckboxState, NestedCheckbox };

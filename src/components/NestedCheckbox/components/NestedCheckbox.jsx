@@ -3,7 +3,7 @@ import { getChildrenCheckboxes } from "../utils";
 import Checkboxes from "./Checkboxes";
 
 export default function NestedCheckbox({
-  dataState,
+  dataWithState,
   onChange,
   checkboxSize,
   fontStyles,
@@ -14,8 +14,8 @@ export default function NestedCheckbox({
 }) {
   return (
     <Checkboxes
-      dataState={dataState}
-      checkboxesToRender={getChildrenCheckboxes(dataState, null)}
+      dataWithState={dataWithState}
+      checkboxesToRender={getChildrenCheckboxes(dataWithState, null)}
       onChange={onChange}
       checkboxSize={checkboxSize}
       fontStyles={fontStyles}

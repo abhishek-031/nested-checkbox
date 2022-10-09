@@ -8,7 +8,7 @@ import styles from "../../../styles/checkbox.module.css";
 import Checkbox from "./Checkbox";
 
 export default function Checkboxes({
-  dataState,
+  dataWithState,
   checkboxesToRender,
   onChange,
   checkboxSize,
@@ -32,7 +32,7 @@ export default function Checkboxes({
     >
       {checkboxesToRender.map((checkboxData) => {
         const childrenCheckboxes = getChildrenCheckboxes(
-          dataState,
+          dataWithState,
           checkboxData.name
         );
         return (
@@ -49,7 +49,9 @@ export default function Checkboxes({
                     marginBottom: verticalMargin,
                   }}
                   onClick={() =>
-                    onChange(updateExpandedState(dataState, checkboxData.name))
+                    onChange(
+                      updateExpandedState(dataWithState, checkboxData.name)
+                    )
                   }
                 >
                   {checkboxData.expanded === false ? "+" : "-"}
@@ -69,7 +71,7 @@ export default function Checkboxes({
                 onToggle={() =>
                   onChange(
                     getNewDataStateOnChange(
-                      dataState,
+                      dataWithState,
                       checkboxData.name,
                       checkboxData.state,
                       checkboxData.parentId
@@ -89,7 +91,7 @@ export default function Checkboxes({
             </div>
             {checkboxData.expanded === false ? null : (
               <Checkboxes
-                dataState={dataState}
+                dataWithState={dataWithState}
                 checkboxesToRender={childrenCheckboxes}
                 onChange={onChange}
                 checkboxSize={checkboxSize}

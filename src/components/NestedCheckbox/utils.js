@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 const CheckboxStates = {
   UNCHECKED: 0,
   INTERMEDIATE: 1,
@@ -84,9 +86,25 @@ function updateExpandedState(data, id) {
   });
 }
 
+function generateInitialState(data) {
+  return data.map((dataItem) => ({
+    ...dataItem,
+    checked: CheckboxStates.UNCHECKED,
+    expanded: true,
+  }));
+}
+
+function useCheckboxState(data) {
+  const [dataWithState, setDataWithState] = useState(
+    generateInitialState(data)
+  );
+  return [dataWithState, setDataWithState];
+}
+
 export {
   getChildrenCheckboxes,
   CheckboxStates,
   getNewDataStateOnChange,
   updateExpandedState,
+  useCheckboxState,
 };
