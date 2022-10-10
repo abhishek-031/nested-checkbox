@@ -26,7 +26,7 @@ state: 0 | 1 | 2,
 expanded: boolean
 ```
 state denotes the current state of the checkbox, that are Checked, Unchecked and intermediate. Expanded denotes the state of the nested checkboxes if they are expanded or collapsed.
-* The component also exposes and object ```CheckboxStates``` , which has three properties, 
+* The component also exposes an object ```CheckboxStates``` , which has three properties, 
 ```
 CHECKED,
 UNCHECKED,
@@ -34,7 +34,7 @@ INTERMEDIATE
 ```
 this can be used to compare state of the checkbox like this
 ```
-checkbox.state === CheckboxState.CHECKED //the checkbox is checked if true
+checkbox.state === CheckboxStates.CHECKED //the checkbox is checked if true
 ```
 * To use the component, you need to import ```NestedCheckbox``` and ```useCheckboxState``` from the component, and use the component like this:
 ```
@@ -79,3 +79,9 @@ and you have the component working
       verticalMargin={30}
     />
     ```
+    
+    ## How to run the example:
+    * To run, clone this repository
+    * run ```yarn``` or ```npm install``` in the terminal
+    * run ```yarn start``` or ```npm start``` in the terminal
+    * the app will start running, the NestedCheckbox component is used in the ```src/App.js``` file, and the main component code is in ```src/components/NestedCheckbox``` and the used styles are located in ```src/styles/filename.module.css```
